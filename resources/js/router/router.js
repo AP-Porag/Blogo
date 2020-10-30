@@ -4,6 +4,9 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 //Backend Component Start Here
+import Dashboard from "../components/admin/DashboardComponent";
+import Example from "../components/ExampleComponent";
+import Category from "../components/admin/category/CategoryComponent";
 // import CategoryList from "../components/backend/CategoryListComponent";
 // import Dashboard from "../components/backend/Dashboard";
 // import EditCategory from "../components/backend/EditCategory";
@@ -11,14 +14,18 @@ Vue.use(VueRouter);
 const routes = new VueRouter({
     mode: "history",
     routes: [
-        // {
-        //     path: "/",
-        //     component: Dashboard
-        // },
-        // {
-        //     path: "/dashboard",
-        //     component: Dashboard
-        // },
+        {
+            path: "/dashboard",
+            component: Dashboard,
+        },
+        {
+            path: "/example",
+            component: Example
+        },
+        {
+            path: "/category",
+            component: Category
+        },
         // {
         //     path: "/category",
         //     component: CategoryList
