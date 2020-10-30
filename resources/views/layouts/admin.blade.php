@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('admin/dist/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <!--
 `body` tag options:
@@ -24,7 +25,7 @@
   * sidebar-mini
 -->
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<div class="wrapper" id="app">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
@@ -164,27 +165,27 @@
                         <a href="#" class="nav-link">
                             <i class="nav-icon fas fa-chart-pie"></i>
                             <p>
-                                Charts
+                                Categories
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <a href="pages/charts/chartjs.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>ChartJS</p>
+                                    <i class="fa fa-list"></i>
+                                    <p>Blog Category List</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/charts/flot.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Flot</p>
+                                    <i class="fa fa-photo-video"></i>
+                                    <p>Video Category List</p>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="pages/charts/inline.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Inline</p>
+                                    <i class="fa fa-list-alt"></i>
+                                    <p>Photo Category List</p>
                                 </a>
                             </li>
                         </ul>
@@ -209,6 +210,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         @yield('content')
+        <example-component></example-component>
     </div>
     <!-- /.content-wrapper -->
 
@@ -244,5 +246,6 @@
 <script src="{{asset('admin/dist/js/demo.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('admin/dist/js/pages/dashboard3.js')}}"></script>
+<script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

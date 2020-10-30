@@ -17,9 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 //Website frontend rout
 Route::get('/',function (){
@@ -46,3 +48,10 @@ Route::get('/post',function (){
 Route::get('/admin-home',function (){
     return view('admin.dashboard.index');
 })->name('admin');
+
+Route::group(['prefix'=>'admin','middleware'=>['auth']],function (){
+
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/category', 'Category\CategoryController');
+    Route::resource('/post', 'Post\PostController');
+});
