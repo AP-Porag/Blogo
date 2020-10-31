@@ -16,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = CategoryResource::collection(Category::all());
+        $categories = CategoryResource::collection(Category::with('posts')->get());
+        //$categories = Category::with('posts')->get();
         return $categories;
     }
 

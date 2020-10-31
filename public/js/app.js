@@ -38504,40 +38504,34 @@ var render = function() {
                     _vm._v(" "),
                     _c(
                       "tbody",
-                      _vm._l(_vm.categories, function(category, index) {
-                        return category
-                          ? _c("tr", { key: category.id }, [
-                              _c("td", [_vm._v(_vm._s(index + 1))]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(category.name))]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(category.slug))]),
-                              _vm._v(" "),
-                              _c("td", [_vm._v(_vm._s(12))]),
-                              _vm._v(" "),
-                              _c("td", [
-                                _c("div", { staticClass: "card-img" }, [
-                                  _c("img", {
-                                    staticClass: "img-fluid",
-                                    attrs: {
-                                      src: __webpack_require__("./resources/js/components/admin/category sync recursive")(category.thumbnail),
-                                      alt: ""
-                                    }
-                                  })
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _vm._m(3, true)
-                            ])
-                          : _c("tr", [_vm._m(4)])
-                      }),
-                      0
+                      [
+                        _vm._l(_vm.categories, function(category, index) {
+                          return _c("tr", { key: category.id }, [
+                            _c("td", [_vm._v(_vm._s(index + 1))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(category.name))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(category.slug))]),
+                            _vm._v(" "),
+                            _c("td", [_vm._v(_vm._s(category.posts.length))]),
+                            _vm._v(" "),
+                            _vm._m(3, true),
+                            _vm._v(" "),
+                            _vm._m(4, true)
+                          ])
+                        }),
+                        _vm._v(" "),
+                        _vm.categories == null
+                          ? _c("tr", [_vm._m(5)])
+                          : _vm._e()
+                      ],
+                      2
                     )
                   ]
                 )
               ]),
               _vm._v(" "),
-              _vm._m(5)
+              _vm._m(6)
             ])
           ])
         ])
@@ -38585,6 +38579,16 @@ var staticRenderFns = [
         _c("th", [_vm._v("Image")]),
         _vm._v(" "),
         _c("th", { staticClass: "text-center" }, [_vm._v("Actions")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("td", [
+      _c("div", { staticClass: "card-img" }, [
+        _c("img", { staticClass: "img-fluid", attrs: { src: "", alt: "" } })
       ])
     ])
   },
@@ -54102,25 +54106,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_DashboardComponent_vue_vue_type_template_id_6522ea74_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
-
-/***/ }),
-
-/***/ "./resources/js/components/admin/category sync recursive":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/admin/category sync ***!
-  \*****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-function webpackEmptyContext(req) {
-	var e = new Error("Cannot find module '" + req + "'");
-	e.code = 'MODULE_NOT_FOUND';
-	throw e;
-}
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = "./resources/js/components/admin/category sync recursive";
 
 /***/ }),
 

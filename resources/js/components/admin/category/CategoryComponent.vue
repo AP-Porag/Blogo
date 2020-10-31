@@ -46,14 +46,14 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="(category,index) in categories" :key="category.id" v-if="category">
+                                    <tr v-for="(category,index) in categories" :key="category.id">
                                         <td>{{index+1}}</td>
                                         <td>{{category.name}}</td>
                                         <td>{{category.slug}}</td>
-                                        <td>{{12}}</td>
+                                        <td>{{category.posts.length}}</td>
                                         <td>
                                             <div class="card-img">
-                                                <img :src="require(category.thumbnail)" alt="" class="img-fluid">
+                                                <img src="" alt="" class="img-fluid">
                                             </div>
                                         </td>
                                         <td class="text-center d-flex">
@@ -63,7 +63,7 @@
                                             <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
-                                    <tr v-else>
+                                    <tr v-if="categories == null">
                                         <td colspan="6" class="alert alert-default-info text-indigo text-center">
                                             <h5>No Category found</h5>
                                         </td>
