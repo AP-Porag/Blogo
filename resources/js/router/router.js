@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 import Dashboard from "../components/admin/DashboardComponent";
 import Example from "../components/ExampleComponent";
 import Category from "../components/admin/category/CategoryComponent";
+import Post from "../components/admin/post/PostComponent";
 // import CategoryList from "../components/backend/CategoryListComponent";
 // import Dashboard from "../components/backend/Dashboard";
 // import EditCategory from "../components/backend/EditCategory";
@@ -25,6 +26,10 @@ const routes = new VueRouter({
         {
             path: "/category",
             component: Category
+        },
+        {
+            path: "/post",
+            component: Post
         },
         // {
         //     path: "/category",

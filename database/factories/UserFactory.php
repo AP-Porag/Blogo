@@ -5,6 +5,8 @@
 use App\User;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
+use App\Models\Post_Tag;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -47,3 +49,16 @@ $factory->define(Post::class, function (Faker $faker) {
         'thumbnail' => $faker->imageUrl(),
     ];
 });
+
+$factory->define(Tag::class, function (Faker $faker) {
+    return [
+        'name' => $faker->unique()->word(),
+        'slug' => $faker->unique()->slug,
+    ];
+});
+//$factory->define(Post_Tag::class, function (Faker $faker) {
+//    return [
+//        'post_id'=>rand(1,50),
+//        'tag_id'=>rand(1,15),
+//    ];
+//});

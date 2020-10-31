@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api\Category;
+namespace App\Http\Controllers\Api\Post;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CategoryResource;
-use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = CategoryResource::collection(Category::with('posts')->get());
-        return $categories;
+        $posts = Post::with('category','tags')->get();
+        return response($posts);
+//        $post = Post::find($id);
+//        foreach ($post->tags as $tag){
+//         echo $tag->name .'</br>';
+//        }
+
     }
 
     /**
