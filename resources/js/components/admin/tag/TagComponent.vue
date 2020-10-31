@@ -5,14 +5,14 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Category</h1>
+                        <h1 class="m-0 text-dark">Tag</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">
                                 <router-link to="/dashboard">Admin</router-link>
                             </li>
-                            <li class="breadcrumb-item active text-capitalize">Category List</li>
+                            <li class="breadcrumb-item active text-capitalize">Tag List</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -28,8 +28,8 @@
                         <div class="card">
                             <div class="card-header border-2">
                                 <div class="d-flex justify-content-between">
-                                    <h3 class="card-title">Category List</h3>
-                                    <a href="#" class="btn btn-outline-dark">Create category</a>
+                                    <h3 class="card-title">Tag List</h3>
+                                    <a href="#" class="btn btn-outline-dark">Create Tag</a>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -41,21 +41,19 @@
                                         <th>Name</th>
                                         <th>Slug</th>
                                         <th>Post Count</th>
-                                        <th>Image</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="(category,index) in categories" :key="category.id">
+                                    <tr v-for="(tag,index) in tags" :key="tag.id">
                                         <td>{{index+1}}</td>
-                                        <td>{{category.name}}</td>
-                                        <td>{{category.slug}}</td>
-                                        <td>{{category.posts.length}}</td>
+                                        <td>{{tag.name}}</td>
                                         <td>
-                                            <div class="card-img">
-                                                <img src="" alt="" class="img-fluid">
+                                            <div class="progress">
+                                                <div class="bar" style="height:100px;background:red;width:25%"></div>
                                             </div>
                                         </td>
+                                        <td>{{tag.posts.length}}</td>
                                         <td class="text-center d-flex">
                                             <a href="#" class="btn btn-info btn-sm mr-3"><i class="fa fa-eye"></i></a>
                                             <a href="#" class="btn btn-warning btn-sm mr-3"><i
@@ -63,7 +61,7 @@
                                             <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
-                                    <tr v-if="categories == null">
+                                    <tr v-if="tags == null">
                                         <td colspan="6" class="alert alert-default-info text-indigo text-center">
                                             <h5>No Category found</h5>
                                         </td>
@@ -94,7 +92,7 @@
 export default {
     data: function () {
         return {
-            categories: [],
+            tags: [],
         }
     },
     mounted() {
@@ -103,10 +101,10 @@ export default {
     methods: {
         loadCategories: function () {
             //load API
-            axios.get('/api/categories')
+            axios.get('/api/tags')
                 //assign this to categories array/object
                 .then((res)=>{
-                    this.categories = res.data.data;
+                    this.tags = res.data;
                 })
                 //catch error
                 .catch(function (err){
@@ -114,7 +112,7 @@ export default {
                 });
 
 
-        }
+        },
     }
 }
 </script>

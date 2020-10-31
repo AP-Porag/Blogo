@@ -53,6 +53,7 @@
                                         <td>{{ post.name | shortTitle}}</td>
                                         <td>{{ post.description | shortDesc }}</td>
                                         <td>
+<!--                                            {{post.tags.length}}-->
                                             <span class="badge badge-primary mr-2" v-for="tag in post.tags" :key="tag.id">{{tag.name}}</span>
                                         </td>
                                         <td>

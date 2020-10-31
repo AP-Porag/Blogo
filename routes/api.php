@@ -20,3 +20,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::resource('categories','Api\Category\CategoryController');
 Route::resource('/posts','Api\Post\PostController');
+Route::resource('/tags','Api\Tag\TagController');

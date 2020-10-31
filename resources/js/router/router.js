@@ -8,6 +8,7 @@ import Dashboard from "../components/admin/DashboardComponent";
 import Example from "../components/ExampleComponent";
 import Category from "../components/admin/category/CategoryComponent";
 import Post from "../components/admin/post/PostComponent";
+import Tag from "../components/admin/tag/TagComponent";
 // import CategoryList from "../components/backend/CategoryListComponent";
 // import Dashboard from "../components/backend/Dashboard";
 // import EditCategory from "../components/backend/EditCategory";
@@ -30,6 +31,10 @@ const routes = new VueRouter({
         {
             path: "/post",
             component: Post
+        },
+        {
+            path: "/tag",
+            component: Tag
         },
         // {
         //     path: "/category",
