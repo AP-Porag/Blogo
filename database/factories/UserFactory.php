@@ -6,7 +6,7 @@ use App\User;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use App\Models\Post_Tag;
+use App\Models\Comment;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -54,5 +54,13 @@ $factory->define(Tag::class, function (Faker $faker) {
     return [
         'name' => $faker->unique()->word(),
         'slug' => $faker->unique()->slug,
+    ];
+});
+
+$factory->define(Comment::class, function (Faker $faker) {
+    return [
+        'user_id'=>rand(1,10),
+        'post_id'=>rand(1,50),
+        'comment' => $faker->unique()->sentence,
     ];
 });

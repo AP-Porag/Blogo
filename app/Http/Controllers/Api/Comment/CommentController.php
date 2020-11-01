@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Comment;
 
 use App\Http\Controllers\Controller;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -14,7 +15,8 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::with('post')->get();
+        return response($comments);
     }
 
     /**
