@@ -55032,37 +55032,26 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
 
 
 
- // import CategoryList from "../components/backend/CategoryListComponent";
-// import Dashboard from "../components/backend/Dashboard";
-// import EditCategory from "../components/backend/EditCategory";
 
 var routes = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
   routes: [{
-    path: "/dashboard",
-    component: _components_admin_DashboardComponent__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }, {
-    path: "/example",
-    component: _components_ExampleComponent__WEBPACK_IMPORTED_MODULE_3__["default"]
+    path: "/home",
+    component: _components_admin_DashboardComponent__WEBPACK_IMPORTED_MODULE_2__["default"],
+    name: 'home'
   }, {
     path: "/category",
-    component: _components_admin_category_CategoryComponent__WEBPACK_IMPORTED_MODULE_4__["default"]
+    component: _components_admin_category_CategoryComponent__WEBPACK_IMPORTED_MODULE_4__["default"],
+    name: 'category'
   }, {
     path: "/post",
-    component: _components_admin_post_PostComponent__WEBPACK_IMPORTED_MODULE_5__["default"]
+    component: _components_admin_post_PostComponent__WEBPACK_IMPORTED_MODULE_5__["default"],
+    name: 'post'
   }, {
     path: "/tag",
-    component: _components_admin_tag_TagComponent__WEBPACK_IMPORTED_MODULE_6__["default"]
-  } // {
-  //     path: "/category",
-  //     component: CategoryList
-  // },
-  // {
-  //     path: "/category/edit/:id",
-  //     component: EditCategory,
-  //     name: "edit-category"
-  // }
-  ]
+    component: _components_admin_tag_TagComponent__WEBPACK_IMPORTED_MODULE_6__["default"],
+    name: 'tag'
+  }]
 });
 /* harmony default export */ __webpack_exports__["default"] = (routes);
 

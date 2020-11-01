@@ -18,5 +18,5 @@ class UserSeeder extends Seeder
             'password'=>bcrypt('asraf@aic.mail.com'),
 
         ]);
-    }
+            }
 }

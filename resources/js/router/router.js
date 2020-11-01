@@ -4,47 +4,35 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 //Backend Component Start Here
-import Dashboard from "../components/admin/DashboardComponent";
+import Home from "../components/admin/DashboardComponent";
 import Example from "../components/ExampleComponent";
 import Category from "../components/admin/category/CategoryComponent";
 import Post from "../components/admin/post/PostComponent";
 import Tag from "../components/admin/tag/TagComponent";
-// import CategoryList from "../components/backend/CategoryListComponent";
-// import Dashboard from "../components/backend/Dashboard";
-// import EditCategory from "../components/backend/EditCategory";
 
 const routes = new VueRouter({
     mode: "history",
     routes: [
         {
-            path: "/dashboard",
-            component: Dashboard,
-        },
-        {
-            path: "/example",
-            component: Example
+            path: "/home",
+            component: Home,
+            name:'home'
         },
         {
             path: "/category",
-            component: Category
+            component: Category,
+            name: 'category'
         },
         {
             path: "/post",
-            component: Post
+            component: Post,
+            name: 'post'
         },
         {
             path: "/tag",
-            component: Tag
-        },
-        // {
-        //     path: "/category",
-        //     component: CategoryList
-        // },
-        // {
-        //     path: "/category/edit/:id",
-        //     component: EditCategory,
-        //     name: "edit-category"
-        // }
+            component: Tag,
+            name: 'tag'
+        }
     ]
 });
 

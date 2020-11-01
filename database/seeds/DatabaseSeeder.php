@@ -5,7 +5,6 @@ use App\User;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
-use App\Models\Post_Tag;
 
 class DatabaseSeeder extends Seeder
 {

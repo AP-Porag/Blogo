@@ -56,9 +56,3 @@ $factory->define(Tag::class, function (Faker $faker) {
         'slug' => $faker->unique()->slug,
     ];
 });
-//$factory->define(Post_Tag::class, function (Faker $faker) {
-//    return [
-//        'post_id'=>rand(1,50),
-//        'tag_id'=>rand(1,15),
-//    ];
-//});

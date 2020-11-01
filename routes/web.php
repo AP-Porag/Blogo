@@ -19,48 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','HomeController@index');
 
-
 Auth::routes();
 
 
+Route::view('/home','admin.dashboard.index')->middleware('auth');;
 
-//Website frontend rout
-//Route::get('/',function (){
-//    return view('website.home');
-//})->name('website');
-
-Route::get('/about',function (){
-    return view('website.about');
-})->name('about');
-
-Route::get('/category',function (){
-    return view('website.category');
-})->name('category');
-
-Route::get('/contact',function (){
-    return view('website.contact');
-})->name('contact');
-
-Route::get('/post',function (){
-    return view('website.post');
-})->name('post');
-
-//admin panel
-//Route::get('/admin-home',function (){
-//    return view('admin.dashboard.index');
-//})->name('admin');
-//
-//Route::group(['prefix'=>'admin','middleware'=>['auth']],function (){
-//
-//    Route::get('/home', 'HomeController@index')->name('home');
-//    Route::resource('/category', 'Category\CategoryController');
-//    Route::resource('/post', 'Post\PostController');
-//
-//});
-
-Route::middleware(['auth'])->group(function () {
-    Route::view('/dashboard','admin.dashboard.index');
-});
-
-//website router
-Route::view('/', 'website.home');
+//Route::get('{any}', function () {
+//    return view('vue_app');
+//})->where('any', '.*');

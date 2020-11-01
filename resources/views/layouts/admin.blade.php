@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Blogo</title>
+    <title>Blogo | Admin</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -167,7 +167,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item menu-open">
-                        <router-link to="/dashboard" class="nav-link active">
+                        <router-link :to="{name:'home'}" class="nav-link active">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
@@ -184,7 +184,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <router-link to="/category" class="nav-link">
+                                <router-link :to="{name:'category'}" class="nav-link">
                                     <i class="fa fa-list"></i>
                                     <p>Blog Category List</p>
                                 </router-link>
@@ -213,7 +213,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <router-link to="/post" class="nav-link">
+                                <router-link :to="{name:'post'}" class="nav-link">
                                     <i class="fa fa-list"></i>
                                     <p>Blog Post List</p>
                                 </router-link>
@@ -242,7 +242,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <router-link to="/tag" class="nav-link">
+                                <router-link :to="{name:'tag'}" class="nav-link">
                                     <i class="fa fa-list"></i>
                                     <p>Blog Tag List</p>
                                 </router-link>
