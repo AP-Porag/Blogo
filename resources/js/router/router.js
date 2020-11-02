@@ -10,6 +10,7 @@ import Category from "../components/admin/category/CategoryComponent";
 import Post from "../components/admin/post/PostComponent";
 import Tag from "../components/admin/tag/TagComponent";
 import Comment from "../components/admin/comment/CommentComponent";
+import Reply from "../components/admin/reply/ReplyComponent";
 import CommentComponent from "../components/admin/comment/CommentComponent";
 
 const routes = new VueRouter({
@@ -44,6 +45,11 @@ const routes = new VueRouter({
             path: "/comment",
             component: Comment,
             name: 'comment'
+        },
+        {
+            path: "/reply",
+            component: Reply,
+            name: 'reply'
         }
     ]
 });
