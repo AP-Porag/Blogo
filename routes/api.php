@@ -22,3 +22,4 @@ Route::resource('categories','Api\Category\CategoryController');
 Route::resource('posts','Api\Post\PostController');
 Route::resource('tags','Api\Tag\TagController');
 Route::resource('comments','Api\Comment\CommentController');
+Route::resource('replies','Api\Reply\ReplyController');
