@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Tag;
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
@@ -37,7 +38,17 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validation
+        $this->validate($request,[
+            'name'=>'required|unique:tags,name|min:3'
+        ]);
+
+        //insert data
+        $tag = Tag::create([
+            'name'=>$request->name,
+            'slug'=>Str::slug($request->name,'-')
+        ]);
+        return response($tag);
     }
 
     /**
@@ -48,7 +59,7 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

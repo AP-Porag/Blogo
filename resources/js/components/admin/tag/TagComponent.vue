@@ -29,7 +29,7 @@
                             <div class="card-header border-2">
                                 <div class="d-flex justify-content-between">
                                     <h3 class="card-title">Tag List</h3>
-                                    <a href="#" class="btn btn-outline-dark">Create Tag</a>
+                                    <router-link :to="{name:'tag-create'}" class="btn btn-outline-dark">Create Tag</router-link>
                                 </div>
                             </div>
                             <div class="card-body">

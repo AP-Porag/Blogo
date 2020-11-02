@@ -29,7 +29,7 @@
                             <div class="card-header border-2">
                                 <div class="d-flex justify-content-between">
                                     <h3 class="card-title">Category List</h3>
-                                    <a href="#" class="btn btn-outline-dark">Create category</a>
+                                    <router-link :to="{name:'category-create'}" class="btn btn-outline-dark">Create category</router-link>
                                 </div>
                             </div>
                             <div class="card-body">
@@ -53,7 +53,7 @@
                                         <td>{{category.posts.length}}</td>
                                         <td>
                                             <div class="card-img">
-                                                <img src="" alt="" class="img-fluid">
+                                                <img :src="category.thumbnail" alt="" class="img-fluid" style="max-height: 80px;max-width: 100px;">
                                             </div>
                                         </td>
                                         <td class="text-center d-flex">

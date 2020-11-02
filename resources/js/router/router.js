@@ -7,8 +7,10 @@ Vue.use(VueRouter);
 import Home from "../components/admin/DashboardComponent";
 import Example from "../components/ExampleComponent";
 import Category from "../components/admin/category/CategoryComponent";
+import CategoryCreate from "../components/admin/category/CategoryCreateComponent";
 import Post from "../components/admin/post/PostComponent";
 import Tag from "../components/admin/tag/TagComponent";
+import TagCreate from "../components/admin/tag/TagCreateComponent";
 import Comment from "../components/admin/comment/CommentComponent";
 import Reply from "../components/admin/reply/ReplyComponent";
 import CommentComponent from "../components/admin/comment/CommentComponent";
@@ -32,6 +34,11 @@ const routes = new VueRouter({
             name: 'category'
         },
         {
+            path: "/category-create",
+            component: CategoryCreate,
+            name: 'category-create'
+        },
+        {
             path: "/post",
             component: Post,
             name: 'post'
@@ -42,6 +49,11 @@ const routes = new VueRouter({
             name: 'tag'
         },
         {
+            path: "/tag-create",
+            component: TagCreate,
+            name: 'tag-create'
+        },
+        {
             path: "/comment",
             component: Comment,
             name: 'comment'
@@ -50,7 +62,8 @@ const routes = new VueRouter({
             path: "/reply",
             component: Reply,
             name: 'reply'
-        }
+        },
+
     ]
 });
 

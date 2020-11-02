@@ -62,7 +62,7 @@
                                         </td>
                                         <td>
                                             <div class="card-img">
-                                                <img src="" alt="" class="img-fluid">
+                                                <img :src="post.thumbnail" alt="" class="img-fluid" style="max-height: 80px;max-width: 100px;">
                                             </div>
                                         </td>
                                         <td class="text-center d-flex">
