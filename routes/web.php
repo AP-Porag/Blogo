@@ -22,7 +22,7 @@ Route::get('/','HomeController@index');
 Auth::routes();
 
 
-Route::view('/home','admin.dashboard.index')->middleware('auth');;
+Route::view('/home','layouts.admin')->middleware('auth');;
 
 //Route::get('{any}', function () {
 //    return view('vue_app');

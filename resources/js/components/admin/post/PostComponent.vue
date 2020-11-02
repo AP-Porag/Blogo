@@ -39,8 +39,10 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Category</th>
+                                        <th>Author Name</th>
                                         <th>Name</th>
                                         <th>Description</th>
+                                        <th>Comments</th>
                                         <th>Tags</th>
                                         <th>Image</th>
                                         <th class="text-center">Actions</th>
@@ -50,8 +52,10 @@
                                     <tr v-for="(post,index) in posts" :key="post.id">
                                         <td>{{ index + 1 }}</td>
                                         <th>{{ post.category.name}}</th>
+                                        <th>{{post.user.name}}</th>
                                         <td>{{ post.name | shortTitle}}</td>
                                         <td>{{ post.description | shortDesc }}</td>
+                                        <th>{{post.comments.length}}</th>
                                         <td>
 <!--                                            {{post.tags.length}}-->
                                             <span class="badge badge-primary mr-2" v-for="tag in post.tags" :key="tag.id">{{tag.name}}</span>
@@ -68,9 +72,9 @@
                                             <a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
-                                    <tr v-if="posts !== null">
-                                        <td colspan="6" class="alert alert-default-info text-indigo text-center">
-                                            <h5>No Category found</h5>
+                                    <tr v-if="posts == null">
+                                        <td colspan="9" class="alert alert-default-info text-indigo text-center">
+                                            <h5>No Post found</h5>
                                         </td>
                                     </tr>
                                     </tbody>

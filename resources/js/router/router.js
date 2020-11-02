@@ -9,10 +9,17 @@ import Example from "../components/ExampleComponent";
 import Category from "../components/admin/category/CategoryComponent";
 import Post from "../components/admin/post/PostComponent";
 import Tag from "../components/admin/tag/TagComponent";
+import Comment from "../components/admin/comment/CommentComponent";
+import CommentComponent from "../components/admin/comment/CommentComponent";
 
 const routes = new VueRouter({
     mode: "history",
     routes: [
+        {
+            path: "/",
+            component: Home,
+            name:'home'
+        },
         {
             path: "/home",
             component: Home,
@@ -32,6 +39,11 @@ const routes = new VueRouter({
             path: "/tag",
             component: Tag,
             name: 'tag'
+        },
+        {
+            path: "/comment",
+            component: Comment,
+            name: 'comment'
         }
     ]
 });

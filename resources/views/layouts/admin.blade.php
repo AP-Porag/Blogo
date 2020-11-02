@@ -261,6 +261,35 @@
                             </li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-chart-pie"></i>
+                            <p>
+                                Comments
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <router-link :to="{name:'comment'}" class="nav-link">
+                                    <i class="fa fa-list"></i>
+                                    <p>Blog Comment List</p>
+                                </router-link>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/charts/flot.html" class="nav-link">
+                                    <i class="fa fa-photo-video"></i>
+                                    <p>Video Tag List</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="pages/charts/inline.html" class="nav-link">
+                                    <i class="fa fa-list-alt"></i>
+                                    <p>Photo Tag List</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="nav-header">EXAMPLES</li>
                     <li class="nav-item">
                         <a href="pages/gallery.html" class="nav-link">
@@ -291,8 +320,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @yield('content')
-        <router-view></router-view>
+        <Index></Index>
     </div>
     <!-- /.content-wrapper -->
 

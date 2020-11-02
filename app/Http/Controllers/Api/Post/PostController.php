@@ -15,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with('category','tags')->get();
+        $posts = Post::with('user','category','comments','tags')->get();
         return response($posts);
 //        $post = Post::find($id);
 //        foreach ($post->tags as $tag){

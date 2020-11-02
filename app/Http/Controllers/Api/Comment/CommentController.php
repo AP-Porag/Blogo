@@ -15,7 +15,7 @@ class CommentController extends Controller
      */
     public function index()
     {
-        $comments = Comment::with('post')->get();
+        $comments = Comment::with('user','post')->get();
         return response($comments);
     }
 
