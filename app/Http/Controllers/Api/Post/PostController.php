@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Api\Post;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +35,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+       $categories = Category::all();
+       $tags = Tag::all();
+       return response(compact(['categories','tags']));
     }
 
     /**

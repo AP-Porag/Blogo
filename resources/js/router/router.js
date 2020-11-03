@@ -9,6 +9,7 @@ import Example from "../components/ExampleComponent";
 import Category from "../components/admin/category/CategoryComponent";
 import CategoryCreate from "../components/admin/category/CategoryCreateComponent";
 import Post from "../components/admin/post/PostComponent";
+import PostCreateComponent from "../components/admin/post/PostCreateComponent";
 import Tag from "../components/admin/tag/TagComponent";
 import TagCreate from "../components/admin/tag/TagCreateComponent";
 import Comment from "../components/admin/comment/CommentComponent";
@@ -42,6 +43,11 @@ const routes = new VueRouter({
             path: "/post",
             component: Post,
             name: 'post'
+        },
+        {
+            path: "/post-create",
+            component: PostCreateComponent,
+            name: 'post-create'
         },
         {
             path: "/tag",

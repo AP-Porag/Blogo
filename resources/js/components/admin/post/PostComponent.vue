@@ -10,7 +10,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item">
-                                <router-link to="/dashboard">Admin</router-link>
+                                <router-link to="/home">Admin</router-link>
                             </li>
                             <li class="breadcrumb-item active text-capitalize">Post List</li>
                         </ol>
@@ -29,7 +29,7 @@
                             <div class="card-header border-2">
                                 <div class="d-flex justify-content-between">
                                     <h3 class="card-title">Post List</h3>
-                                    <a href="#" class="btn btn-outline-dark">Create Post</a>
+                                    <router-link :to="{name:'post-create'}" class="btn btn-outline-dark">Create Post</router-link>
                                 </div>
                             </div>
                             <div class="card-body">
