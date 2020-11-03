@@ -49,8 +49,8 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr v-for="(post,index) in posts" :key="post.id">
-                                        <td>{{ index + 1 }}</td>
+                                    <tr v-for="(post,index) in posts.data" :key="post.id">
+                                        <td>{{(posts.current_page*10)-10 + index+1}}</td>
                                         <th>{{ post.category.name}}</th>
                                         <th>{{post.user.name}}</th>
                                         <td>{{ post.name | shortTitle}}</td>
@@ -82,7 +82,9 @@
                             </div>
                             <div class="card-footer">
                                 <div class="pagination justify-content-end">
-                                    <span class="text-right"></span>
+
+                                    <pagination :data="posts" @pagination-change-page="getResults"></pagination>
+<!--                                    <span class="text-right"></span>-->
                                 </div>
                             </div>
                         </div>
@@ -103,7 +105,7 @@
 export default {
     data: function () {
         return {
-            posts: []
+            posts: {},
         }
     },
     filters: {
@@ -118,6 +120,12 @@ export default {
         this.loadCategories();
     },
     methods: {
+        getResults(page = 1) {
+            axios.get('api/posts?page=' + page)
+                .then(response => {
+                    this.posts = response.data;
+                });
+        },
         loadCategories: function () {
             //load API
             axios.get('/api/posts')

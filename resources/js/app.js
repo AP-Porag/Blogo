@@ -22,6 +22,7 @@ window.Toast = Toast;
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('Index', require('./components/admin/IndexComponent').default);
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 
 
