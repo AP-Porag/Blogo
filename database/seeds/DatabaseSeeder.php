@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\Reply;
+use App\Models\PostTags;
 
 class DatabaseSeeder extends Seeder
 {
@@ -25,5 +26,6 @@ class DatabaseSeeder extends Seeder
         factory(Tag::class,15)->create();
         factory(Comment::class,120)->create();
         factory(Reply::class,130)->create();
+        factory(PostTags::class,130)->create();
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Tag;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\Tag;
 use Illuminate\Support\Str;
@@ -17,7 +18,8 @@ class TagController extends Controller
     public function index()
     {
         $tags = Tag::with('posts')->get();
-        return response($tags);
+        $posts = Post::all();
+        return response(compact(['posts','tags']));
     }
 
     /**

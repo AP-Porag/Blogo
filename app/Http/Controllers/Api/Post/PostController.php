@@ -5,9 +5,13 @@ namespace App\Http\Controllers\Api\Post;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Post_Tags;
+use App\Models\PostTags;
 use App\Models\Tag;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -48,7 +52,42 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $this->validate($request, [
+            'name' => 'required|unique:posts,name',
+            'category_id' => 'required',
+            //'tags' => 'required',
+            'thumbnail' => 'required|image',
+            'description' => 'required',
+
+        ]);
+
+        $post = post::create([
+            'user_id' => '1',
+            'category_id' => $request->category_id,
+            'name' => $request->name,
+            'thumbnail' => 'image.jpg',
+            'description' => $request->description,
+            'slug' => Str::slug($request->name),
+        ]);
+        $tags = $request->tags;
+        $p_tags = [];
+        foreach ($tags as $tag){
+            array_push($p_tags,['post_id'=>$post->id,'tag_id'=>$tag]);
+        }
+        //PostTags::insert($p_tags);
+        $post->tags()->sync($tags);
+
+
+        if ($request->has('thumbnail')) {
+            $image = $request->thumbnail;
+            $image_new_name = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('storage/post/thumbnail/', $image_new_name);
+            $post->thumbnail = '/storage/post/thumbnail/' . $image_new_name;
+            $post->save();
+        }
+
+        return response($post);
     }
 
     /**

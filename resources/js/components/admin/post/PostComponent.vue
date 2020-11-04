@@ -34,7 +34,7 @@
                             </div>
                             <div class="card-body">
 
-                                <table class="table table-hover text-nowrap table-striped">
+                                <table class="table table-hover text-nowrap table-striped table-responsive">
                                     <thead class="bg-gradient-navy">
                                     <tr>
                                         <th>#</th>
@@ -58,7 +58,7 @@
                                         <th>{{post.comments.length}}</th>
                                         <td>
 <!--                                            {{post.tags.length}}-->
-                                            <span class="badge badge-primary mr-2" v-for="tag in post.tags" :key="tag.id">{{tag.name}}</span>
+                                            <span class="badge badge-primary text-capitalize mr-2 pl-2" v-for="tag in post.tags" :key="tag.id" style="font-size: 14px;">{{tag.name}}</span>
                                         </td>
                                         <td>
                                             <div class="card-img">

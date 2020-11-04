@@ -41,13 +41,13 @@
 
                                 <div class="row">
                                     <div class="col-12 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
-                                        <form>
+                                        <form @submit.prevent="submit" enctype="multipart/form-data">
                                             <div class="card-body">
                                                 <div class="form-row">
                                                     <div class="col-md-12">
                                                         <div class="form-group">
                                                             <label for="name">Post Title</label>
-                                                            <input type="text" name="name"
+                                                            <input type="text" name="name" v-model="fields.name"
                                                                    class="form-control"
                                                                    id="name"
                                                                    placeholder="Enter Title">
@@ -56,8 +56,8 @@
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label>Select Categories</label>
-                                                            <select class="form-control">
+                                                            <label for="category_id">Select Categories</label>
+                                                            <select class="form-control" id="category_id" name="category_id" v-model="fields.category_id">
                                                                 <option :value="category.id"
                                                                         v-for="category in categories"
                                                                         :key="category.id">{{ category.name }}
@@ -71,7 +71,7 @@
                                                             <div class="form-group border p-3">
                                                                 <div class="checkbox">
                                                                     <label v-for="tag in tags" :key="tag.id" class="mr-3">
-                                                                        <input :value="tag.id" type="checkbox">
+                                                                        <input :value="tag.id" type="checkbox" name="tags[]" v-model="fields.allTags">
                                                                         {{tag.name}}
                                                                     </label>
                                                                 </div>
@@ -80,11 +80,11 @@
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <label for="name">Description</label>
-                                                            <textarea type="text" name="name" rows="7"
+                                                            <label for="description">Description</label>
+                                                            <textarea type="text" name="description" rows="7"
                                                                       class="form-control"
-                                                                      id="name"
-                                                                      placeholder="Enter Title"></textarea>
+                                                                      id="description"
+                                                                      placeholder="Enter description" v-model="fields.description"></textarea>
                                                         </div>
                                                     </div>
 
@@ -95,7 +95,7 @@
                                                             <div class="col-md-3">
                                                                 <img :src="imagePreview" alt="" class="img-fluid">
                                                                 <span class="text-capitalize"
-                                                                      v-if="imagePreview == null">Upload a Thumbnail for category</span>
+                                                                      v-if="imagePreview == null">Upload a Thumbnail for Post</span>
                                                             </div>
                                                             <div class="col-md-9">
                                                                 <div class="form-group">
@@ -153,6 +153,16 @@ export default {
         return {
             categories: [],
             tags: [],
+            imagePreview:null,
+            errors:'',
+            fields:{
+                name:'',
+                category_id:'',
+                allTags:[],
+                description:'',
+                image: '',
+            }
+
         }
     },
     mounted() {
@@ -168,6 +178,40 @@ export default {
                 .catch((err) => {
                     console.log(err)
                 });
+        },
+        imageSelected(e){
+            this.fields.image = e.target.files[0];
+            let reader = new FileReader();
+            reader.readAsDataURL(this.fields.image);
+            reader.onload = e =>{
+                this.imagePreview = e.target.result;
+            };
+        },
+        submit() {
+            let formData = new FormData;
+            formData.append('name',this.fields.name);
+            formData.append('category_id',this.fields.category_id);
+            formData.append('tags[]',this.fields.allTags);
+            formData.append('description',this.fields.description);
+            formData.append('thumbnail',this.fields.image);
+            axios.post('/api/posts',formData)
+                .then((res)=>{
+                    this.fields ={}
+                    this.imagePreview = null;
+                    //success massage
+                    Toast.fire({
+                        icon: 'success',
+                        title: 'Post Created successfully'
+                    });
+                    this.errors = {}
+                    console.log('success',res);
+                })
+                .catch((err)=>{
+                    if (err.response.status === 422) {
+                        this.errors = err.response.data.errors
+                    }
+                    console.log(err);
+                })
         }
     }
 }

@@ -39,7 +39,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Name</th>
-                                        <th>Slug</th>
+                                        <th>Usage</th>
                                         <th>Post Count</th>
                                         <th class="text-center">Actions</th>
                                     </tr>
@@ -49,8 +49,8 @@
                                         <td>{{index+1}}</td>
                                         <td>{{tag.name}}</td>
                                         <td>
-                                            <div class="progress">
-                                                <div class="bar" style="height:100px;background:red;width:25%"></div>
+                                            <div class="progress bg-gradient-navy">
+                                                <div class="bar" :style="'height:100px;background:red;width: ' + (tag.posts.length/posts.length)*100 +'%'"></div>
                                             </div>
                                         </td>
                                         <td>{{tag.posts.length}}</td>
@@ -93,6 +93,7 @@ export default {
     data: function () {
         return {
             tags: [],
+            posts:[]
         }
     },
     mounted() {
@@ -104,7 +105,8 @@ export default {
             axios.get('/api/tags')
                 //assign this to categories array/object
                 .then((res)=>{
-                    this.tags = res.data;
+                    this.tags = res.data.tags;
+                    this.posts = res.data.posts;
                 })
                 //catch error
                 .catch(function (err){

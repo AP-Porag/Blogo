@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use App\Models\Comment;
 use App\Models\Reply;
+use App\Models\PostTags;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -71,5 +72,11 @@ $factory->define(Reply::class, function (Faker $faker) {
         'user_id'=>rand(1,10),
         'comment_id'=>rand(1,120),
         'reply' => $faker->unique()->sentence,
+    ];
+});
+$factory->define(PostTags::class, function (Faker $faker) {
+    return [
+        'post_id'=>rand(1,50),
+        'tag_id'=>rand(1,15),
     ];
 });
